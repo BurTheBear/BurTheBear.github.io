@@ -1,229 +1,101 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Atharv Sharma</title>
-  <meta name="description" content="Atharv Sharma: student developer. Apps, games and engines, including TypeParkinson and the Kodiak chess engine.">
-  <meta property="og:title" content="Atharv Sharma">
-  <meta property="og:description" content="Apps, games and engines. TypeParkinson, Kodiak, Steady and more.">
-  <meta property="og:image" content="https://burthebear.github.io/assets/typeparkinson.jpg">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --paper: #f6f3ec;
-      --paper-2: #efe9dd;
-      --ink: #1c1b19;
-      --dim: #6b665d;
-      --rule: #ddd6c8;
-      --accent: #c9461f;
-      --serif: 'Fraunces', Georgia, serif;
-      --sans: 'Source Sans 3', system-ui, sans-serif;
-      --mono: 'JetBrains Mono', ui-monospace, monospace;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --paper: #151412;
-        --paper-2: #1e1c19;
-        --ink: #ece7dd;
-        --dim: #a29a8c;
-        --rule: #2f2c27;
-        --accent: #f07a52;
-      }
-    }
-    :root[data-theme="dark"] {
-      --paper: #151412;
-      --paper-2: #1e1c19;
-      --ink: #ece7dd;
-      --dim: #a29a8c;
-      --rule: #2f2c27;
-      --accent: #f07a52;
-    }
-
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 18px/1.6 var(--sans); }
-    a { color: inherit; text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
-    a:hover { color: var(--accent); }
-    img { max-width: 100%; display: block; }
-    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 26px 0; font-size: 16px; }
-    nav .name { font-family: var(--serif); font-weight: 600; font-size: 20px; text-decoration: none; }
-    nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
-    nav ul a { text-decoration: none; color: var(--dim); }
-    nav ul a:hover { color: var(--ink); }
-
-    .hero { padding: 70px 0 64px; border-bottom: 1px solid var(--rule); }
-    .hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(40px, 6.4vw, 76px); line-height: 1.04; letter-spacing: -0.02em; margin: 0; max-width: 17ch; }
-    .hero h1 em { font-style: italic; color: var(--accent); }
-    .hero p { max-width: 36em; color: var(--dim); font-size: 20px; margin: 28px 0 0; }
-    .hero p b { color: var(--ink); font-weight: 600; }
-
-    .label { font: 500 13px var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--dim); }
-    section { padding: 64px 0; }
-    section > .label { display: block; margin-bottom: 28px; }
-
-    .project { display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center; padding: 40px 0; border-top: 1px solid var(--rule); }
-    .project:first-of-type { border-top: 0; padding-top: 0; }
-    .project:nth-of-type(even) .shot { order: 2; }
-    .shot { border-radius: 10px; overflow: hidden; background: var(--paper-2); aspect-ratio: 16 / 9; border: 1px solid var(--rule); }
-    .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-    .shot:hover img { transform: scale(1.02); }
-    .project h2 { font-family: var(--serif); font-weight: 600; font-size: 32px; letter-spacing: -0.01em; margin: 6px 0 10px; }
-    .project p { margin: 0 0 12px; }
-    .project .why { color: var(--dim); font-size: 16.5px; border-left: 2px solid var(--accent); padding-left: 14px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
-    .tags span { font: 12.5px var(--mono); padding: 3px 8px; border: 1px solid var(--rule); border-radius: 5px; color: var(--dim); }
-    .links { display: flex; gap: 18px; font-weight: 600; font-size: 16.5px; }
-
-    .small { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; border-top: 1px solid var(--rule); padding-top: 36px; }
-    .small h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; margin: 0 0 6px; }
-    .small p { margin: 0; color: var(--dim); font-size: 16.5px; }
-
-    .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; border-top: 1px solid var(--rule); }
-    .about p { margin: 0 0 16px; }
-    .about dl { margin: 0; display: grid; gap: 18px; }
-    .about dt { font: 500 13px var(--mono); text-transform: uppercase; letter-spacing: 0.04em; color: var(--dim); margin-bottom: 4px; }
-    .about dd { margin: 0; }
-
-    footer { border-top: 1px solid var(--rule); padding: 36px 0 60px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--dim); font-size: 16px; }
-
-    @media (max-width: 780px) {
-      body { font-size: 17px; }
-      .hero { padding: 36px 0 44px; }
-      .project, .about, .small { grid-template-columns: 1fr; gap: 20px; }
-      .project:nth-of-type(even) .shot { order: 0; }
-      nav ul { gap: 16px; }
-      section { padding: 44px 0; }
-    }
-    @media (prefers-reduced-motion: reduce) { .shot img { transition: none; } html { scroll-behavior: auto; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atharv Sharma</title>
+<meta name="description" content="Stuff I've made: a chess engine, a keyboard for people with Parkinson's, games, and more.">
+<link rel="icon" href="bear.svg" type="image/svg+xml">
+<style>
+  body {
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 680px;
+    margin: 40px auto 80px;
+    padding: 0 16px;
+    color: #111;
+    background: #fff;
+  }
+  a { color: #0645ad; }
+  a:visited { color: #5a3696; }
+  h1 { font-size: 26px; margin: 0 0 18px; }
+  h1 img { width: 36px; height: 33px; vertical-align: -6px; margin-right: 8px; image-rendering: pixelated; }
+  h2 { font-size: 19px; margin: 40px 0 14px; padding-bottom: 4px; border-bottom: 1px solid #ccc; }
+  h3 { font-size: 16px; margin: 0; }
+  .when { color: #777; font-weight: normal; font-size: 14px; margin-right: 6px; }
+  .links { font-weight: normal; font-size: 14px; margin-left: 6px; }
+  .item { margin-bottom: 30px; }
+  .item p { margin: 4px 0 0; }
+  .shot { display: block; max-width: 100%; margin-top: 10px; border: 1px solid #ddd; }
+  .phones { margin-top: 10px; }
+  .phones img { width: 30%; max-width: 165px; margin-right: 2%; border: 1px solid #ddd; border-radius: 12px; }
+  .small { color: #555; font-size: 15px; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #121212; color: #ddd; }
+    a { color: #8ab4f8; }
+    a:visited { color: #c58af9; }
+    h2 { border-color: #444; }
+    .when, .small { color: #999; }
+    .shot, .phones img { border-color: #333; }
+  }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <nav>
-      <a class="name" href="./">Atharv Sharma</a>
-      <ul>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="https://github.com/BurTheBear">GitHub</a></li>
-      </ul>
-    </nav>
 
-    <header class="hero">
-      <h1>I build apps, games, and the <em>engines</em> behind them.</h1>
-      <p>I'm a student developer. Right now I'm building <b>TypeParkinson</b>, a keyboard for people with Parkinson's, for the Congressional App Challenge. Below are the things I'm proudest of. Most of them you can try right in your browser.</p>
-    </header>
+<h1><img src="bear.svg" alt="">Atharv Sharma</h1>
 
-    <section id="work">
-      <span class="label">Selected work</span>
+<p>Hi! I'm a student and I like making things you can actually try. Most of the stuff below runs in your browser, so click around.</p>
 
-      <article class="project">
-        <a class="shot" href="https://github.com/BurTheBear/TypeParkinson-CAC"><img src="assets/typeparkinson.jpg" alt="TypeParkinson app screens: practice, today and progress"></a>
-        <div>
-          <span class="label">iOS · 2026</span>
-          <h2>TypeParkinson</h2>
-          <p>An iPhone and iPad app plus a system keyboard. It measures where someone's touches actually land, builds a keyboard around that, and keeps adjusting as they type. It also has short daily hand and voice check-ins, medication timing, and a report to share with a care team.</p>
-          <p class="why">Built with Pranav Atreya for the Congressional App Challenge. The tricky part was the machine learning: it has to adapt to each person's hands without ever pretending to diagnose anything.</p>
-          <div class="tags"><span>Swift</span><span>SwiftUI</span><span>Keyboard extension</span><span>On-device ML</span></div>
-          <div class="links"><a href="https://github.com/BurTheBear/TypeParkinson-CAC">Code</a></div>
-        </div>
-      </article>
+<p>Right now I'm working on <a href="https://github.com/BurTheBear/TypeParkinson-CAC">TypeParkinson</a> with Pranav Atreya for the Congressional App Challenge. It's a keyboard for people with Parkinson's that adjusts to how their hands actually move.</p>
 
-      <article class="project">
-        <a class="shot" href="https://burthebear.github.io/kodiak/"><img src="assets/kodiak.jpg" alt="Kodiak chess engine mid-game"></a>
-        <div>
-          <span class="label">Algorithms · 2026</span>
-          <h2>Kodiak</h2>
-          <p>A chess engine written from scratch in JavaScript, with no libraries. It uses alpha-beta search with a transposition table, null-move pruning and quiescence search. It looks 10 to 14 moves ahead in two seconds, running in a Web Worker so the board stays smooth.</p>
-          <p class="why">The move generator is checked against published perft counts: over a million positions that have to match exactly. If castling or en passant is even slightly wrong, the numbers don't add up.</p>
-          <div class="tags"><span>JavaScript</span><span>Search</span><span>Web Workers</span><span>CI</span></div>
-          <div class="links"><a href="https://burthebear.github.io/kodiak/">Play it</a><a href="https://github.com/BurTheBear/kodiak">Code</a></div>
-        </div>
-      </article>
+<p>Code is on GitHub: <a href="https://github.com/BurTheBear">github.com/BurTheBear</a></p>
 
-      <article class="project">
-        <a class="shot" href="https://burthebear.github.io/steady/"><img src="assets/steady.jpg" alt="Steady comparing tremor filters on a spiral drawing"></a>
-        <div>
-          <span class="label">Signal processing · 2026</span>
-          <h2>Steady</h2>
-          <p>A side project from TypeParkinson. You draw with a simulated tremor, or your real one, and five filters try to steady it: moving average, exponential, 1€, Kalman and notch. You get scores for error, lag and leftover wobble, plus a live frequency spectrum.</p>
-          <p class="why">What surprised me: the simple filters barely help, because the lag they add costs as much accuracy as the shake. A notch filter tuned to the tremor's frequency cut the error by more than half.</p>
-          <div class="tags"><span>JavaScript</span><span>Canvas</span><span>Kalman filter</span><span>FFT</span></div>
-          <div class="links"><a href="https://burthebear.github.io/steady/">Try it</a><a href="https://github.com/BurTheBear/steady">Code</a></div>
-        </div>
-      </article>
+<h2>Things I've made</h2>
 
-      <article class="project">
-        <a class="shot" href="https://burthebear.github.io/starlink/"><img src="assets/starlink.jpg" alt="Starlink website with gameplay"></a>
-        <div>
-          <span class="label">3D / graphics · 2026</span>
-          <h2>Starlink</h2>
-          <p>A presentation site with a whole 3D game inside it. You fly a kettle-shaped rocket between doodle planets to relight the Great Lantern. It works with keyboard, gamepad or touch.</p>
-          <p class="why">This was an AI-assisted programming challenge: AI wrote the code, while I designed the world, the missions and the hand-drawn look, then playtested and redirected it until it felt right.</p>
-          <div class="tags"><span>three.js</span><span>GLSL</span><span>JavaScript</span></div>
-          <div class="links"><a href="https://burthebear.github.io/starlink/">Play it</a><a href="https://github.com/BurTheBear/starlink">Code</a></div>
-        </div>
-      </article>
+<div class="item">
+  <h3><span class="when">Oct 2026</span>Kodiak <span class="links"><a href="https://burthebear.github.io/kodiak/">play</a> · <a href="https://github.com/BurTheBear/kodiak">code</a></span></h3>
+  <p>A chess engine I wrote from scratch in JavaScript, with no libraries. It uses alpha-beta search, a transposition table and the usual tricks. In a test match against Stockfish set to 1500 Elo it won 18 of 20 games. The move generator is checked against known perft counts every time I push.</p>
+  <a href="https://burthebear.github.io/kodiak/"><img class="shot" src="assets/kodiak.jpg" alt="Kodiak in the middle of a game" loading="lazy"></a>
+</div>
 
-      <article class="project">
-        <a class="shot" href="https://github.com/BurTheBear/quickhelp"><img src="assets/quickhelp.jpg" alt="QuickHelp architecture: mobile app, API, data and admin dashboard"></a>
-        <div>
-          <span class="label">Full stack · 2026</span>
-          <h2>QuickHelp</h2>
-          <p>A micro-volunteering platform: people post small 5 to 30 minute tasks and nearby volunteers pick them up. It has a React Native app, an Express and TypeScript API with realtime updates, PostgreSQL through Prisma, and a React admin dashboard, all in Docker.</p>
-          <p class="why">This one is mostly about the backend: auth tokens, rate limiting, realtime updates, and a database schema that has to hold up as features pile on.</p>
-          <div class="tags"><span>TypeScript</span><span>React Native</span><span>Express</span><span>PostgreSQL</span><span>Docker</span></div>
-          <div class="links"><a href="https://github.com/BurTheBear/quickhelp">Code</a></div>
-        </div>
-      </article>
+<div class="item">
+  <h3><span class="when">Oct 2026</span>Steady <span class="links"><a href="https://burthebear.github.io/steady/">try it</a> · <a href="https://github.com/BurTheBear/steady">code</a></span></h3>
+  <p>A spin-off from TypeParkinson. You draw with a fake tremor and compare five filters that try to smooth it out. Most of them barely help, because the lag they add costs about as much as the shake. A notch filter tuned to the tremor's frequency cut the error by more than half.</p>
+  <a href="https://burthebear.github.io/steady/"><img class="shot" src="assets/steady.jpg" alt="Steady comparing filters on a spiral" loading="lazy"></a>
+</div>
 
-      <article class="project">
-        <a class="shot" href="https://burthebear.github.io/ink-arcade/"><img src="assets/hoopstar.jpg" alt="Hoopstar title screen in a 3D gym"></a>
-        <div>
-          <span class="label">Game design · 2026</span>
-          <h2>Hoopstar</h2>
-          <p>Coach a high school basketball team for three seasons. Recruit, run practices, keep the locker room happy, then play the games on a 3D court. It's one HTML file and works offline. It lives in my Ink Arcade alongside Inkstar.</p>
-          <div class="tags"><span>three.js</span><span>Simulation</span><span>Web Audio</span></div>
-          <div class="links"><a href="https://burthebear.github.io/ink-arcade/">Play it</a><a href="https://github.com/BurTheBear/ink-arcade">Code</a></div>
-        </div>
-      </article>
+<div class="item">
+  <h3><span class="when">Oct 2026</span>TypeParkinson <span class="links"><a href="https://github.com/BurTheBear/TypeParkinson-CAC">code</a></span></h3>
+  <p>An iPhone app with its own system keyboard. It learns where your touches land, builds the keyboard around that, and fixes typos using Bayes' rule. It also has a tremor meter, a spiral test, medication reminders, and a report you can share with your doctor. It never claims to diagnose anything.</p>
+  <div class="phones"><img src="assets/practice.webp" alt="Practice screen" loading="lazy"><img src="assets/today.webp" alt="Today screen" loading="lazy"><img src="assets/progress.webp" alt="Progress screen" loading="lazy"></div>
+</div>
 
-      <div class="small">
-        <div>
-          <h3>The Great Pixel Adventure</h3>
-          <p>A 2D adventure game in Godot for FBLA. You travel back to the 1910s and complete quests for historical characters across three levels.</p>
-        </div>
-        <div>
-          <h3>Chess Glasses</h3>
-          <p>Computer vision that reads a real chessboard through Ray-Ban Meta glasses. It tracks the game move by move by checking every legal move against what the camera sees.</p>
-        </div>
-      </div>
-    </section>
+<div class="item">
+  <h3><span class="when">Oct 2026</span>Starlink <span class="links"><a href="https://burthebear.github.io/starlink/">play</a> · <a href="https://github.com/BurTheBear/starlink">code</a></span></h3>
+  <p>A website with a whole 3D game inside it. You fly a kettle-shaped rocket between little doodle planets. This one was a challenge to build a game where AI writes the code. I came up with the world and the design and did a lot of playtesting.</p>
+  <a href="https://burthebear.github.io/starlink/"><img class="shot" src="assets/starlink.jpg" alt="Starlink website" loading="lazy"></a>
+</div>
 
-    <section id="about" class="about">
-      <div>
-        <span class="label">About</span>
-        <p style="margin-top: 18px">I like projects where I can see the result right away. Lately I've gotten more interested in what's underneath: how a search algorithm decides which moves are worth looking at, or how to tell a hand tremor apart from a deliberate movement.</p>
-        <p>Outside of code I compete in FBLA and play chess.</p>
-        <p>I'm looking for a software engineering internship. The best way to reach me is through <a href="https://github.com/BurTheBear">GitHub</a>.</p>
-      </div>
-      <dl>
-        <div><dt>Languages</dt><dd>Swift, JavaScript, TypeScript, Python, GDScript</dd></div>
-        <div><dt>Frameworks</dt><dd>SwiftUI, React, React Native, Express, three.js, Godot</dd></div>
-        <div><dt>Tools</dt><dd>Git, Xcode, Docker, PostgreSQL, Blender</dd></div>
-        <div><dt>Now</dt><dd>Congressional App Challenge 2026 with TypeParkinson</dd></div>
-      </dl>
-    </section>
+<div class="item">
+  <h3><span class="when">Oct 2026</span>Hoopstar <span class="links"><a href="https://burthebear.github.io/ink-arcade/">play</a> · <a href="https://github.com/BurTheBear/ink-arcade">code</a></span></h3>
+  <p>A basketball coaching game. You get three seasons to win State: recruit, run practices, then play the games on a 3D court. It's a single HTML file and works offline.</p>
+</div>
 
-    <footer>
-      <span>Atharv Sharma · 2026</span>
-      <span><a href="https://github.com/BurTheBear">github.com/BurTheBear</a></span>
-    </footer>
-  </div>
+<div class="item">
+  <h3><span class="when">May 2026</span>QuickHelp <span class="links"><a href="https://github.com/BurTheBear/quickhelp">code</a></span></h3>
+  <p>An app for small favors: post something that takes 5 to 30 minutes, and someone nearby picks it up. It has a React Native app, an Express and Postgres backend, realtime chat, XP and streaks for volunteers, and an admin dashboard.</p>
+</div>
+
+<div class="item">
+  <h3><span class="when">Mar 2026</span>The Great Pixel Adventure</h3>
+  <p>A 2D Godot game for FBLA. You go back to the 1910s and do quests for historical figures, across levels set in the Mexican Revolution, the Titanic and Henry Ford's factory.</p>
+</div>
+
+<p class="small">Also in progress: a chessboard reader for Ray-Ban Meta glasses. It uses computer vision and follows a real game move by move. Not public yet.</p>
+
+<h2>Stuff I use</h2>
+<p>Swift and SwiftUI, JavaScript and TypeScript, Python, Godot, three.js, React Native, Postgres, Docker and Blender.</p>
+
+<p class="small">Last updated October 2026.</p>
+
 </body>
 </html>
