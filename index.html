@@ -52,8 +52,24 @@
 <h2>Things I've made</h2>
 
 <div class="item">
-  <h3><span class="when">Nov 2026</span>Agent Relay <span class="links"><a href="https://github.com/BurTheBear/agent-relay">code</a></span></h3>
-  <p>When I'm away from Claude, this keeps my coding projects going. After 15 quiet minutes it starts a local model, Codex or headless Claude on the next task, in its own git branch. It stops the moment I'm back. Workers can't commit or push. The relay runs the project's tests and only commits if they pass, and I merge what I want. It's one Python file with a small web app for managing projects.</p>
+  <h3><span class="when">Sep 2026</span>BurMarketAnalyzer <span class="links"><a href="https://github.com/BurTheBear/BurMarketAnalyzer">code</a></span></h3>
+  <p>A crypto research dashboard. It streams live Binance prices into candlestick charts with the usual indicators (EMA, VWAP, RSI, MACD), and estimates how often a signal has actually worked before showing it. There's a paper trading account that starts with 100,000 fake dollars and fills orders against the real order book, and a bot that suggests trades but can't place one until you approve it. React on Cloudflare Workers, with a database for the paper accounts.</p>
+</div>
+
+<div class="item">
+  <h3><span class="when">Nov 2025</span>VoiceVision <span class="links"><a href="https://github.com/BurTheBear/voicevision">code</a></span></h3>
+  <p>An iPhone app for blind and low-vision people. Point the camera ahead and it says what's there, warns about obstacles ("Obstacle ahead. Turn left."), and vibrates harder as something gets closer. It runs three models on the phone: YOLOv8 to find objects, Depth Anything V2 to tell how far away they are, and FastViT to describe the scene. It speaks English, Spanish, French and Hindi. It won 1st place at the GAICOM 2025 AI Hackathon.</p>
+</div>
+
+<div class="item">
+  <h3><span class="when">Oct 2026</span>TypeParkinson <span class="links"><a href="https://github.com/BurTheBear/TypeParkinson-CAC">code</a></span></h3>
+  <p>An iPhone app with its own system keyboard. It learns where your touches land, builds the keyboard around that, and fixes typos using Bayes' rule. It also has a tremor meter, a spiral test, medication reminders, and a report you can share with your doctor. It never claims to diagnose anything. I made it with Pranav Atreya for the 2026 Congressional App Challenge.</p>
+  <div class="phones"><img src="assets/practice.webp" alt="Practice screen" loading="lazy"><img src="assets/today.webp" alt="Today screen" loading="lazy"><img src="assets/progress.webp" alt="Progress screen" loading="lazy"></div>
+</div>
+
+<div class="item">
+  <h3><span class="when">Oct 2026</span>Chess Glasses <span class="links"><a href="https://github.com/BurTheBear/chess-glasses">code</a></span></h3>
+  <p>Ray-Ban Meta glasses look at a real chessboard, and Stockfish's move gets spoken into your ear. The iPhone app sends the camera to my Mac, which reads the board with a neural network (chesscog) and works out which legal move explains the picture, so a hand in the way or a bad frame doesn't break it. On a recorded 27-move game it got every move right in all 21 test runs. I haven't tried it on real glasses yet. It's meant for training and demos, not for cheating.</p>
 </div>
 
 <div class="item">
@@ -63,14 +79,19 @@
 </div>
 
 <div class="item">
-  <h3><span class="when">Oct 2026</span>Chess Glasses <span class="links"><a href="https://github.com/BurTheBear/chess-glasses">code</a></span></h3>
-  <p>Ray-Ban Meta glasses look at a real chessboard, and Stockfish's move gets spoken into your ear. The iPhone app sends the camera to my Mac, which reads the board with a neural network (chesscog) and works out which legal move explains the picture, so a hand in the way or a bad frame doesn't break it. On a recorded 27-move game it got every move right in all 21 test runs. I haven't tried it on real glasses yet. It's meant for training and demos, not for cheating.</p>
-</div>
-
-<div class="item">
   <h3><span class="when">Oct 2026</span>Kodiak <span class="links"><a href="https://burthebear.github.io/kodiak/">play</a> · <a href="https://github.com/BurTheBear/kodiak">code</a></span></h3>
   <p>A chess engine I wrote from scratch in JavaScript, with no libraries. It uses alpha-beta search, a transposition table and the usual tricks. Against Stockfish set to 2100 Elo it won 24 of 40 games at 0.2 seconds a move. The move generator is checked against known perft counts every time I push.</p>
   <a href="https://burthebear.github.io/kodiak/"><img class="shot" src="assets/kodiak.jpg" alt="Kodiak in the middle of a game" loading="lazy"></a>
+</div>
+
+<div class="item">
+  <h3><span class="when">Nov 2026</span>Agent Relay <span class="links"><a href="https://github.com/BurTheBear/agent-relay">code</a></span></h3>
+  <p>When I'm away from Claude, this keeps my coding projects going. After 15 quiet minutes it starts a local model, Codex or headless Claude on the next task, in its own git branch. It stops the moment I'm back. Workers can't commit or push. The relay runs the project's tests and only commits if they pass, and I merge what I want. It's one Python file with a small web app for managing projects.</p>
+</div>
+
+<div class="item">
+  <h3><span class="when">Mar 2026</span>The Great Pixel Adventure <span class="links"><a href="https://github.com/BurTheBear/the-great-pixel-adventure">code</a></span></h3>
+  <p>A 2D Godot game for FBLA. You go back to the 1910s and do quests for historical figures, across levels set in the Mexican Revolution, the Titanic and Henry Ford's factory.</p>
 </div>
 
 <div class="item">
@@ -80,9 +101,8 @@
 </div>
 
 <div class="item">
-  <h3><span class="when">Oct 2026</span>TypeParkinson <span class="links"><a href="https://github.com/BurTheBear/TypeParkinson-CAC">code</a></span></h3>
-  <p>An iPhone app with its own system keyboard. It learns where your touches land, builds the keyboard around that, and fixes typos using Bayes' rule. It also has a tremor meter, a spiral test, medication reminders, and a report you can share with your doctor. It never claims to diagnose anything. I made it with Pranav Atreya for the 2026 Congressional App Challenge.</p>
-  <div class="phones"><img src="assets/practice.webp" alt="Practice screen" loading="lazy"><img src="assets/today.webp" alt="Today screen" loading="lazy"><img src="assets/progress.webp" alt="Progress screen" loading="lazy"></div>
+  <h3><span class="when">May 2026</span>QuickHelp <span class="links"><a href="https://github.com/BurTheBear/quickhelp">code</a></span></h3>
+  <p>An app for small favors: post something that takes 5 to 30 minutes, and someone nearby picks it up. It has a React Native app, an Express and Postgres backend, realtime chat, XP and streaks for volunteers, and an admin dashboard.</p>
 </div>
 
 <div class="item">
@@ -94,26 +114,6 @@
 <div class="item">
   <h3><span class="when">Oct 2026</span>Hoopstar <span class="links"><a href="https://burthebear.github.io/ink-arcade/">play</a> · <a href="https://github.com/BurTheBear/ink-arcade">code</a></span></h3>
   <p>A basketball coaching game. You get three seasons to win State: recruit, run practices, then play the games on a 3D court. It's a single HTML file and works offline.</p>
-</div>
-
-<div class="item">
-  <h3><span class="when">Sep 2026</span>BurMarketAnalyzer <span class="links"><a href="https://github.com/BurTheBear/BurMarketAnalyzer">code</a></span></h3>
-  <p>A crypto research dashboard. It streams live Binance prices into candlestick charts with the usual indicators (EMA, VWAP, RSI, MACD), and estimates how often a signal has actually worked before showing it. There's a paper trading account that starts with 100,000 fake dollars and fills orders against the real order book, and a bot that suggests trades but can't place one until you approve it. React on Cloudflare Workers, with a database for the paper accounts.</p>
-</div>
-
-<div class="item">
-  <h3><span class="when">May 2026</span>QuickHelp <span class="links"><a href="https://github.com/BurTheBear/quickhelp">code</a></span></h3>
-  <p>An app for small favors: post something that takes 5 to 30 minutes, and someone nearby picks it up. It has a React Native app, an Express and Postgres backend, realtime chat, XP and streaks for volunteers, and an admin dashboard.</p>
-</div>
-
-<div class="item">
-  <h3><span class="when">Mar 2026</span>The Great Pixel Adventure <span class="links"><a href="https://github.com/BurTheBear/the-great-pixel-adventure">code</a></span></h3>
-  <p>A 2D Godot game for FBLA. You go back to the 1910s and do quests for historical figures, across levels set in the Mexican Revolution, the Titanic and Henry Ford's factory.</p>
-</div>
-
-<div class="item">
-  <h3><span class="when">Nov 2025</span>VoiceVision <span class="links"><a href="https://github.com/BurTheBear/voicevision">code</a></span></h3>
-  <p>An iPhone app for blind and low-vision people. Point the camera ahead and it says what's there, warns about obstacles ("Obstacle ahead. Turn left."), and vibrates harder as something gets closer. It runs three models on the phone: YOLOv8 to find objects, Depth Anything V2 to tell how far away they are, and FastViT to describe the scene. It speaks English, Spanish, French and Hindi. It won 1st place at the GAICOM 2025 AI Hackathon.</p>
 </div>
 
 <h2>Awards</h2>
